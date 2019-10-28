@@ -1,2 +1,7 @@
 server:
-  port: 9090
+  port: 1010
+# customize value
+myConfig:
+  myObject:
+    myName: Jerry
+    myAge: 20

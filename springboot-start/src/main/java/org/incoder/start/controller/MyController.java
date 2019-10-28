@@ -2,8 +2,8 @@ package org.incoder.start.controller;
 
 import org.incoder.start.domain.Person;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
@@ -18,7 +18,7 @@ import java.util.Date;
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MyController {
 
-    @RequestMapping(value = "/person", method = RequestMethod.GET)
+    @PostMapping(value = "/person")
     public Person getPerson() {
         Person person = new Person();
         person.setId(0);
@@ -26,5 +26,6 @@ public class MyController {
         person.setBirthday(new Date());
         return person;
     }
+
 
 }
