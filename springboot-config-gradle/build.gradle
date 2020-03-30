@@ -1,0 +1,50 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'org.incoder'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'mysql:mysql-connector-java'
+    compileOnly 'org.projectlombok:lombok'
+    // 自定义配置属性
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+// 排除 springboot 默认自带的 logback
+//configurations {
+//    all*.exclude group: 'org.springframework.boot',
+//            module: 'spring-boot-starter-logging'
+//}
+
+// set environment
+if (!project.hasProperty('profile') || !profile) {
+    ext.profile = 'dev'
+}
+
+// set Configuration file path
+sourceSets {
+    main {
+        java {
+            srcDir "src/main/java"
+        }
+        resources {
+            srcDirs = ["src/main/resources", "src/main/java"]
+        }
+    }
+}

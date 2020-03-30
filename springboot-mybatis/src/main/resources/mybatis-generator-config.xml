@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- TODO 更多信息可参考 https://juejin.im/post/5db694e3e51d452a2e25ba45#heading-20 -->
+
+    <!-- 引入配置文件 -->
+    <!--<properties resource="application.yml"/>-->
+
+    <!-- targetRuntime类型支持
+            MyBatis3DynamicSql
+            MyBatis3Kotlin
+            MyBatis3
+            MyBatis3Simple
+            http://mybatis.org/generator/quickstart.html -->
+    <context id="myContext" targetRuntime="MyBatis3Simple">
+
+        <!-- 注释 -->
+        <commentGenerator>
+            <!-- 是否不生成注释 true 不生成注释；false 生成注释-->
+            <property name="suppressAllComments" value="false"/>
+            <!-- 不希望生成的注释中包含时间戳 -->
+            <!--<property name="suppressDate" value="true"/>-->
+            <!-- 添加 db 表中字段的注释，只有suppressAllComments为false时才生效-->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+        <!--TODO 数据库连接 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/server_learn" userId="root"
+                        password="Root,.65">
+        </jdbcConnection>
+
+        <!--<jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+            &lt;!&ndash;高版本的 mysql-connector-java 需要设置 nullCatalogMeansCurrent=true&ndash;&gt;
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>-->
+
+        <javaTypeResolver>
+            <!-- 类型转换 -->
+            <!-- 是否使用bigDecimal，默认false
+                     false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+                     true，把JDBC DECIMAL 和 NUMERIC 类型解析为 java.math.BigDecimal -->
+            <property name="forceBigDecimals" value="false"/>
+            <!-- 默认false
+                 false，将所有 JDBC 的时间类型解析为 java.util.Date
+                 true，将 JDBC 的时间类型按如下规则解析
+                     DATE	                -> java.time.LocalDate
+                     TIME	                -> java.time.LocalTime
+                     TIMESTAMP               -> java.time.LocalDateTime
+                     TIME_WITH_TIMEZONE  	-> java.time.OffsetTime
+                     TIMESTAMP_WITH_TIMEZONE	-> java.time.OffsetDateTime
+                -->
+            <!--<property name="useJSR310Types" value="false"/>-->
+        </javaTypeResolver>
+
+        <!-- TODO Mac targetProject必须是本机绝对路径 -->
+        <!-- 指定JavaBean生成的位置 -->
+        <javaModelGenerator
+                targetPackage="org.incoder.mybatis.bean"
+                targetProject="/Users/blade/Documents/DevProject/IDEAProject/rc-cluster-springboot/springboot-mybatis/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- TODO Mac targetProject必须是本机绝对路径 -->
+        <!-- SQL映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="/Users/blade/Documents/DevProject/IDEAProject/rc-cluster-springboot/springboot-mybatis/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- TODO Mac targetProject必须是本机绝对路径 -->
+        <!-- Dao接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="org.incoder.mybatis.dao"
+                             targetProject="/Users/blade/Documents/DevProject/IDEAProject/rc-cluster-springboot/springboot-mybatis/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- TODO 每个表的生成策略 -->
+        <!-- schema为数据库名，oracle需要配置，mysql不需要配置。
+                     tableName为对应的数据库表名
+                     domainObjectName 是要生成的实体类名(可以不指定，默认按帕斯卡命名法将表名转换成类名)
+                     enableXXXByExample 默认为 true，true会生成一个对应Example帮助类，帮助你进行条件查询，不想要可以设为false -->
+        <table schema="" tableName="tbl_dept" domainObjectName="Dept"
+               enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               enableUpdateByExample="false" selectByExampleQueryId="false">
+            <!--是否使用实际列名,默认为false-->
+            <!--<property name="useActualColumnNames" value="false" />-->
+        </table>
+
+    </context>
+</generatorConfiguration>

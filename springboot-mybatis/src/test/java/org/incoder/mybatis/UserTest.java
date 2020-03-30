@@ -1,32 +1,26 @@
 package org.incoder.mybatis;
 
-import org.incoder.mybatis.domain.User;
-import org.incoder.mybatis.mapper.UserMapper;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author : Jerry xu
  * @date : 2019/10/27  21:33
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserTest {
 
-    @Autowired
-    UserMapper userMapper;
+//    @Autowired
+//    UserMapper userMapper;
 
     /**
      * 插入用户
      */
     @Test
     public void insertUser() {
-        userMapper.insertUser(new User("zhangsan", "123456", "张三", 20));
-        userMapper.insertUser(new User("lisi", "123456", "李四", 24));
-        userMapper.insertUser(new User("wangwu", "123456", "王五", 28));
+//        userMapper.insertUser(new User("zhangsan", "123456", "张三", 20));
+//        userMapper.insertUser(new User("lisi", "123456", "李四", 24));
+//        userMapper.insertUser(new User("wangwu", "123456", "王五", 28));
     }
 
     /**
@@ -34,7 +28,7 @@ public class UserTest {
      */
     @Test
     public void getAll() {
-        userMapper.getAll();
+//        userMapper.getAll();
     }
 
     /**
@@ -42,7 +36,7 @@ public class UserTest {
      */
     @Test
     public void getUserById() {
-        userMapper.getUserById(1L);
+//        userMapper.getUserById(1L);
     }
 
     /**
@@ -50,7 +44,7 @@ public class UserTest {
      */
     @Test
     public void updateUserById() {
-        userMapper.updateUserById(new User("wangwu", "123456", "王五", 28));
+//        userMapper.updateUserById(new User("wangwu", "123456", "王五", 28));
     }
 
     /**
@@ -58,6 +52,6 @@ public class UserTest {
      */
     @Test
     public void deleteUserById() {
-        userMapper.deleteUserById(1L);
+//        userMapper.deleteUserById(1L);
     }
 }

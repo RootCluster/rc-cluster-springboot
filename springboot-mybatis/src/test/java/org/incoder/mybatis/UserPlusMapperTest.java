@@ -1,11 +1,7 @@
 package org.incoder.mybatis;
 
-import org.incoder.mybatis.mapper.UserMapper;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,13 +12,11 @@ import java.util.List;
  * @author : Jerry xu
  * @date : 2019/10/28  00:04
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserPlusMapperTest {
 
-
-    @Autowired
-    private UserMapper userMapper;
+//    @Autowired
+//    private UserMapper userMapper;
 //    @Autowired
 //    private DeptMapper deptMapper;
 

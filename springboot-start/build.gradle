@@ -1,50 +1,32 @@
-buildscript {
-    ext {
-        springBootVersion = '2.1.6.RELEASE'
-    }
-    repositories {
-        // 显式指定仓库访问地址
-        maven {
-            url 'http://repo.spring.io/release'
-        }
-        mavenCentral()
-    }
-    dependencies {
-        classpath(
-                // 针对spring 的 gradle 插件，提供 bootRun，bootJar 等额外的 tasks
-                "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
-                // 依赖管理，比如不使用版本号，就可以使用 SpringBoot 的相关依赖，依赖之间进行相关的依赖传递，而加载相关的依赖
-                "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
-        )
-    }
-}
-
-apply {
-    plugin("java")
-    plugin("maven")
-    plugin("idea")
-    plugin("org.springframework.boot")
-    plugin("io.spring.dependency-management")
+plugins {
+    id 'org.springframework.boot' version '2.1.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
 }
 
 group 'com.incoder'
-version '1.0-SNAPSHOT'
-
+version '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 sourceCompatibility = 1.8
 
 repositories {
     // 显式指定仓库访问地址
-    maven {
-        url 'http://repo.spring.io/release'
-    }
+//    maven {
+//        // springboot 官方仓库
+//        url 'http://repo.spring.io/release'
+//        // 阿里云官方仓库
+//        url 'https://maven.aliyun.com/repository/public'
+//    }
     mavenCentral()
 }
 
 dependencies {
     implementation(
             'org.springframework.boot:spring-boot-starter-web',
+            // 学习 springboot-loader 的源码
             "org.springframework.boot:spring-boot-loader",
     )
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }

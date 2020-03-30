@@ -6,7 +6,8 @@ plugins {
 
 group = 'org.incoder'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 configurations {
     compileOnly {
@@ -15,34 +16,27 @@ configurations {
 }
 
 repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+    }
     mavenCentral()
 }
 
-//ext {
-//    set('snippetsDir', file("build/generated-snippets"))
-//}
-
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.1.2'
-    implementation 'com.baomidou:mybatis-plus-generator:3.1.2'
-    implementation 'org.freemarker:freemarker:2.3.29'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.3.1'
+    // mybatis plus 代码生成工具
+    implementation 'com.baomidou:mybatis-plus-generator:3.3.1'
+    // mybatis plus 模板
+    implementation 'org.apache.velocity:velocity-engine-core:2.2'
+    // mybatis 代码生成工具
+    implementation 'org.mybatis.generator:mybatis-generator-core:1.4.0'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
 }
-
-
-//test {
-//    outputs.dir snippetsDir as Object
-//    useJUnitPlatform()
-//}
-//
-//asciidoctor {
-//    inputs.dir snippetsDir
-//    dependsOn test
-//}

@@ -4,6 +4,8 @@
 1. 官方初始化创建应用 [http://start.spring.io](http://start.spring.io/)
 2. IDEA 初始化创建
 
+>阿里云初始化应用网站：[https://start.aliyun.com](https://start.aliyun.com)
+
 ## 结构
 
 ```

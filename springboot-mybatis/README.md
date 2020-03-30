@@ -6,16 +6,26 @@
 
 ```
 springboot-mybatis/
-    ├── java/org.incoder.mybatis/
-    │   ├── controller/             # Controller 层
-    │   ├── dao/                    # 数据操作层 DAO
-    │   ├── domain/                 # 实体类
-    │   ├── service/                # 业务逻辑层
-    │   ├── plus/                   # 使用mybatis plus
+    ├── org.incoder/
+    │   ├── generator               # 自动生成代码
+    │   │   ├── MybatisGenerator        # 使用 Mybatis 代码生成
+    │   │   └── PlusGenerator           # 使用 Plus 代码生成
+    │   ├── mybatis/                # 使用 mybatis
+    │   │   ├── controller/             # Controller 层
+    │   │   ├── dao/                    # 数据操作层 DAO
+    │   │   ├── domain/                 # 实体类
+    │   │   └── service/                # 业务逻辑层
+    │   ├── plus/                   # 使用 mybatis plus
+    │   │   ├── controller/             # Controller 层
+    │   │   ├── dao/                    # 数据操作层 DAO
+    │   │   ├── domain/                 # 实体类
+    │   │   └── service/                # 业务逻辑层
     │   └── MybatisApplication      # 当前模块启动类（入口）
     └── resources
-        ├── init                    # 初始化sql脚步
-        └── application.yml         # 项目配置文件
+        ├── mapper/                         # 生成的 mapper 文件
+        ├── sql/                            # 初始化sql脚步
+        ├── application.yml                 # 项目配置文件
+        └── mybatis-generator-config.xml    # 项目配置文件
 ```
 
 ## MyBatis，MyBatis SpringBoot Star，MyBatis Plus三则间的关系
@@ -25,7 +35,7 @@ springboot-mybatis/
 2. MyBatis SpringBoot Star [网站](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/index.html)，[项目源码](https://github.com/mybatis/spring-boot-starter)  
     MyBatis Spring-Boot-Starter will help you use MyBatis with Spring Boot
 2. MyBatis Plus [网站](https://mp.baomidou.com)，[项目源码](https://github.com/baomidou/mybatis-plus)  
-    MyBatis-Plus是MyBatis的功能强大的增强工具包，用于简化开发。该工具包为MyBatis提供了一些高效，有用，即用的功能，使用它可以有效地节省您的开发时间
+    MyBatis-Plus 是 MyBatis 的功能强大的增强工具包，用于简化开发。该工具包为 MyBatis 提供了一些高效，有用，即用的功能，使用它可以有效地节省您的开发时间
 
 ### MyBatis在 SpringBoot 中集成使用有两种方式
 
