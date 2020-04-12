@@ -13,8 +13,9 @@ rc-cluster-springboot
 ```
 rc-cluster-springboot/
     ├── springboot-aop/             # springboot 核心功能 aop 学习
-    ├── springboot-config-gradle/   # springboot gradle 多环境配置
-    ├── springboot-config-maven/    # springboot maven 多环境配置
+    ├── springboot-config/   
+    │   ├── springboot-config-gradle/   # springboot gradle 多环境配置
+    │   └── springboot-config-maven/    # springboot maven 多环境配置
     ├── springboot-mybatis/         # springboot + mybatis 整合，完成简单注册登录等功能
     ├── springboot-start/           # 默认创建 springboot 项目，用于源码源码学习等
     ├── ……
