@@ -17,11 +17,17 @@ import java.util.List;
  */
 public class MybatisGenerator {
 
+    ///////////////////////////////////////////////////////////////////////////
+    // 常用配置
+    ///////////////////////////////////////////////////////////////////////////
+
+    // TODO 修改配置文件地址【当前模块名开始往后】
+    private static String mybatisXmlPath = System.getProperty("user.dir") + "/springboot-mybatis/src/main/resources/mybatis-generator-config.xml";
+    private static boolean overwrite = true;
+
     public static void main(String[] args) throws Exception {
         List<String> warnings = new ArrayList<>();
-        boolean overwrite = true;
-        // TODO 修改配置文件地址【当前模块名开始往后】
-        File configFile = new File(System.getProperty("user.dir") + "/springboot-mybatis/src/main/resources/mybatis-generator-config.xml");
+        File configFile = new File(mybatisXmlPath);
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(configFile);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);

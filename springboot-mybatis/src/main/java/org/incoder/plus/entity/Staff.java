@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 员工信息表
+ * 员工表
  * </p>
  *
  * @author Jerry xu
- * @since 2020-03-30
+ * @since 2020-05-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -33,14 +33,19 @@ public class Staff implements Serializable {
     private Long id;
 
     /**
-     * 其他系统用户 ID 表示
+     * 上级主键
      */
-    private String userId;
+    private Long parentId;
 
     /**
-     * 成员名称
+     * 用户名
      */
-    private String staffName;
+    private String userName;
+
+    /**
+     * 成员年龄
+     */
+    private Integer age;
 
     /**
      * 手机号码
@@ -48,7 +53,7 @@ public class Staff implements Serializable {
     private String mobile;
 
     /**
-     * 部门 ID
+     * 所在部门主键
      */
     private Long deptId;
 
@@ -61,6 +66,11 @@ public class Staff implements Serializable {
      * 更新时间
      */
     private LocalDateTime updateTime;
+
+    /**
+     * 1-删除，0-未删除
+     */
+    private Integer isDeleted;
 
 
 }

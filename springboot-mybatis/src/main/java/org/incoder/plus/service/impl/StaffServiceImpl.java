@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 员工信息表 服务实现类
+ * 员工表 服务实现类
  * </p>
  *
  * @author Jerry xu
- * @since 2020-03-30
+ * @since 2020-05-10
  */
 @Service
 public class StaffServiceImpl extends ServiceImpl<StaffMapper, Staff> implements IStaffService {

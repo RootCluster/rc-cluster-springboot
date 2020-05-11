@@ -25,42 +25,54 @@ import java.util.Scanner;
 @Component
 public class PlusGenerator {
 
+    ///////////////////////////////////////////////////////////////////////////
+    // 常用配置
+    ///////////////////////////////////////////////////////////////////////////
+
+    private static String author = "Jerry xu";
+    private static String jdbcURl = "jdbc:mysql://localhost:3306/server_learn?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true";
+    private static String jdbcDriver = "com.mysql.cj.jdbc.Driver";
+    private static String jdbcUserName = "root";
+    private static String jdbcPassword = "Root,.65";
+    private static String packageName = "org.incoder.plus";
+    // TODO 写绝对路径地址【由于我这里是多module，因此后面加入 module 名称，如果你是单 module，就不要加】
+    private static String projectPath = System.getProperty("user.dir") + "/springboot-mybatis";
+    private static String javaOutPath = "/src/main/java";
+    private static String tablePrefix = "tbl_";
+
     /**
      * 读取控制台内容
      */
-    private static String scanner(String tip) {
+    private static String scanner() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("请输入" + tip + "：");
+        System.out.println("请输入" + "需要生成的表名，多个英文逗号分割" + "：");
         if (scanner.hasNext()) {
             String ipt = scanner.next();
-            if (StringUtils.isNotBlank(ipt)) {
+            if (StringUtils.isBlank(ipt)) {
                 return ipt;
             }
         }
-        throw new MybatisPlusException("请输入正确的" + tip + "！");
+        throw new MybatisPlusException("请输入正确的" + "需要生成的表名，多个英文逗号分割" + "！");
     }
 
     public static void main(String[] args) {
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
-        // TODO Mac 写绝对路径地址【由于我这里是多module，因此后面加入 module 名称 plus，如果你是单module，就不要加】
-        String projectPath = System.getProperty("user.dir") + "/springboot-mybatis";
-
         ///////////////////////////////////////////////////////////////////////////
         // 全局配置
         // TODO 更多配置{@link https://mp.baomidou.com/config/generator-config.html#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE}
         ///////////////////////////////////////////////////////////////////////////
         GlobalConfig gc = new GlobalConfig()
                 // 文件输出路径
-                .setOutputDir(projectPath + "/src/main/java")
+                .setOutputDir(projectPath + javaOutPath)
                 // 是否覆盖已有文件【默认值：false】
-                .setFileOverride(true)
+//                .setFileOverride(true)
                 // 是否打开输出目录【默认值：true】
                 .setOpen(false)
                 // 是否在xml中添加二级缓存配置【默认值：false】
 //                .setEnableCache(true)
                 // 设置作者
-                .setAuthor("Jerry xu")
+                .setAuthor(author)
                 // 开启 Kotlin 模式【默认值：false】
 //                .setKotlin(true)
                 // 开启 swagger2 模式【默认值：false】
@@ -99,10 +111,10 @@ public class PlusGenerator {
         // TODO {@link https://mp.baomidou.com/config/generator-config.html#%E6%95%B0%E6%8D%AE%E6%BA%90-datasourceconfig-%E9%85%8D%E7%BD%AE}
         ///////////////////////////////////////////////////////////////////////////
         DataSourceConfig dsc = new DataSourceConfig()
-                .setUrl("jdbc:mysql://localhost:3306/server_learn?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true")
-                .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUsername("root")
-                .setPassword("Root,.65")
+                .setUrl(jdbcURl)
+                .setDriverName(jdbcDriver)
+                .setUsername(jdbcUserName)
+                .setPassword(jdbcPassword)
                 /*.setTypeConvert(new MySqlTypeConvert() {
                     // 自定义数据库表字段类型转换【可选】
                     @Override
@@ -139,7 +151,7 @@ public class PlusGenerator {
         PackageConfig pc = new PackageConfig()
 //                .setModuleName(scanner("连接哪个数据库"))
                 // TODO 生成文件的包路径
-                .setParent("org.incoder.plus")
+                .setParent(packageName)
                 // 设置控制器的包名，默认为 controller
                 //.setController("")
                 // 设置实体的包名，默认 entity
@@ -220,11 +232,11 @@ public class PlusGenerator {
                 // 需要排除的表
                 //.setExclude(scanner("需要排除的表名，多个英文逗号分割").split(","))
                 // 需要生成的表
-                .setInclude(scanner("需要生成的表名，多个英文逗号分割").split(","))
+                .setInclude(scanner().split(","))
                 // 驼峰转连字符
                 .setControllerMappingHyphenStyle(true)
-                // 设置表前缀，可以再生成文件时去除掉
-                .setTablePrefix("tbl_")
+                // 设置表前缀，可以在生成文件时去除掉
+                .setTablePrefix(tablePrefix)
                 // Boolean类型字段是否移除is前缀处理，默认是 false
                 .setEntityBooleanColumnRemoveIsPrefix(true)
                 // 自定义 mapper 父类

@@ -6,26 +6,31 @@
 
 ```
 springboot-mybatis/
+  java
     ├── org.incoder/
-    │   ├── generator               # 自动生成代码
-    │   │   ├── MybatisGenerator        # 使用 Mybatis 代码生成
-    │   │   └── PlusGenerator           # 使用 Plus 代码生成
     │   ├── mybatis/                # 使用 mybatis
     │   │   ├── controller/             # Controller 层
     │   │   ├── dao/                    # 数据操作层 DAO
     │   │   ├── domain/                 # 实体类
     │   │   └── service/                # 业务逻辑层
     │   ├── plus/                   # 使用 mybatis plus
-    │   │   ├── controller/             # Controller 层
-    │   │   ├── dao/                    # 数据操作层 DAO
-    │   │   ├── domain/                 # 实体类
-    │   │   └── service/                # 业务逻辑层
+    │   │   ├── controller/             # Controller 层【控制层，负责具体模块的业务流程控制，需要调用 service 逻辑设计层的接口来控制业务流程】
+    │   │   ├── mapper/                 # 数据操作层 Mapper【方法语句是直接针对数据库操作的，主要实现一些增删改查操作，在 mybatis 中方法主要与与 xxx.xml 内相互一一映射】
+    │   │   ├── entity/                 # 实体类
+    │   │   └── service/                # 业务逻辑层【给 Controller 层的类提供接口进行调用。一般就是自己写的方法封装起来，就是声明一下，具体实现在 serviceImpl 中】
     │   └── MybatisApplication      # 当前模块启动类（入口）
-    └── resources
-        ├── mapper/                         # 生成的 mapper 文件
-        ├── sql/                            # 初始化sql脚步
-        ├── application.yml                 # 项目配置文件
-        └── mybatis-generator-config.xml    # 项目配置文件
+    │── resources
+    │   ├── mapper/                         # 生成的 mapper 文件
+    │   ├── sql/                            # 初始化 sql 脚本
+    │   ├── application.yml                 # 项目配置文件
+    │   └── mybatis-generator-config.xml    # 项目配置文件
+  test
+    └── org.incoder/
+        ├── generator               # 自动生成代码
+        │   ├── MybatisGenerator        # 使用 mybatis 代码生成
+        │   └── PlusGenerator           # 使用 mybatis plus 代码生成
+        ├── mybatis/                # 使用 mybatis 的相关测试用例
+        └── plus/                   # 使用 mybatis plus 的相关测试用例
 ```
 
 ## MyBatis，MyBatis SpringBoot Star，MyBatis Plus三则间的关系
@@ -34,7 +39,7 @@ springboot-mybatis/
     MyBatis 是一款优秀的持久层框架，它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。MyBatis 可以使用简单的 XML 或注解来配置和映射原生类型、接口和 Java 的 POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录
 2. MyBatis SpringBoot Star [网站](https://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/index.html)，[项目源码](https://github.com/mybatis/spring-boot-starter)  
     MyBatis Spring-Boot-Starter will help you use MyBatis with Spring Boot
-2. MyBatis Plus [网站](https://mp.baomidou.com)，[项目源码](https://github.com/baomidou/mybatis-plus)  
+2. MyBatis Plus [网站](https://mybatis.plus)，[项目源码](https://github.com/baomidou/mybatis-plus)  
     MyBatis-Plus 是 MyBatis 的功能强大的增强工具包，用于简化开发。该工具包为 MyBatis 提供了一些高效，有用，即用的功能，使用它可以有效地节省您的开发时间
 
 ### MyBatis在 SpringBoot 中集成使用有两种方式
@@ -64,3 +69,4 @@ XML 版本保持映射文件的老传统，接口层只需要定义空方法，�
 ## 学习参考
 
 * [如何优雅的适用 Mybatis](https://www.cnblogs.com/ityouknow/p/6037431.html)
+* [Mybatis Plus使用指南](https://mp.baomidou.com/guide/)

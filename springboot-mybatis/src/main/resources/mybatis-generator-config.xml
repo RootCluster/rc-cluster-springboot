@@ -19,11 +19,11 @@
         <!-- 注释 -->
         <commentGenerator>
             <!-- 是否不生成注释 true 不生成注释；false 生成注释-->
-            <property name="suppressAllComments" value="false"/>
+            <property name="suppressAllComments" value="true"/>
             <!-- 不希望生成的注释中包含时间戳 -->
             <!--<property name="suppressDate" value="true"/>-->
             <!-- 添加 db 表中字段的注释，只有suppressAllComments为false时才生效-->
-            <property name="addRemarkComments" value="true"/>
+            <property name="addRemarkComments" value="false"/>
         </commentGenerator>
 
         <!--TODO 数据库连接 -->
@@ -55,7 +55,7 @@
                      TIME_WITH_TIMEZONE  	-> java.time.OffsetTime
                      TIMESTAMP_WITH_TIMEZONE	-> java.time.OffsetDateTime
                 -->
-            <!--<property name="useJSR310Types" value="false"/>-->
+            <property name="useJSR310Types" value="true"/>
         </javaTypeResolver>
 
         <!-- TODO Mac targetProject必须是本机绝对路径 -->

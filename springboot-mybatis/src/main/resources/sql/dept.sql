@@ -1,11 +1,13 @@
 DROP TABLE IF EXISTS tbl_dept;
 CREATE TABLE tbl_dept
 (
-    id          bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-    dept_name   varchar(11) DEFAULT NULL COMMENT '部门名称',
-    parent_id   bigint(20) NOT NULL COMMENT '父部门 ID',
-    create_time datetime    DEFAULT NULL COMMENT '创建时间',
-    update_time datetime    DEFAULT NULL COMMENT '更新时间',
+    id          BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
+    dept_name   VARCHAR(11) DEFAULT NULL COMMENT '部门名称',
+    superior_id BIGINT(20)  DEFAULT NULL COMMENT '上级部门主键',
+    create_time DATETIME    DEFAULT NULL COMMENT '创建时间',
+    update_time DATETIME    DEFAULT NULL COMMENT '更新时间',
+    is_deleted  INT(1)      DEFAULT 0 COMMENT '1-删除，0-未删除',
+    CONSTRAINT superior_fk FOREIGN KEY (superior_id) REFERENCES tbl_dept (id),
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
