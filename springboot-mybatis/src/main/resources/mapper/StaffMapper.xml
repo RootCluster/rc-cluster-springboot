@@ -7,4 +7,16 @@
         select *
         from tbl_staff ${ew.customSqlSegment}
     </select>
+
+    <select id="selectMultiTablePage" resultType="org.incoder.plus.entity.Staff">
+        select ts.id,
+               ts.parent_id,
+               ts.user_name,
+               ts.age,
+               ts.mobile,
+               ts.dept_id,
+               td.dept_name
+        from tbl_staff ts
+                 left join tbl_dept td on ts.dept_id = td.id;
+    </select>
 </mapper>

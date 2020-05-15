@@ -1,8 +1,6 @@
 package org.incoder.plus.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -24,7 +22,7 @@ import java.time.LocalDateTime;
 @TableName("tbl_staff")
 public class Staff implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * 主键
@@ -69,7 +67,11 @@ public class Staff implements Serializable {
 
     /**
      * 1-删除，0-未删除
+     * 设置了删除表示 @TableLogic
+     * 设置查询返回不显示 @TableField(select = false)，这里对于自定义的 SQL 语句是无效
      */
+    @TableLogic
+    @TableField(select = false)
     private Integer isDeleted;
 
 

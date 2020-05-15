@@ -9,7 +9,6 @@ import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,6 @@ import java.util.Scanner;
  * @author : Jerry xu
  * @date : 2019-08-08  23:20
  */
-@Component
 public class PlusGenerator {
 
     ///////////////////////////////////////////////////////////////////////////
