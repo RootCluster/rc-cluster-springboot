@@ -1,4 +1,4 @@
-## spring-start
+## springboot-start
 
 创建 springboot 项目方式
 1. 官方初始化创建应用 [http://start.spring.io](http://start.spring.io/)

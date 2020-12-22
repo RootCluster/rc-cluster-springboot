@@ -15,7 +15,6 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/api")
 public class ConfigController {
 
-
     @Resource
     private MavenDataConfig mavenDataConfig;
 
