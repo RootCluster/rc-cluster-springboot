@@ -7,13 +7,15 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 /**
+ * 使用 {@link org.springframework.boot.context.properties.ConfigurationProperties}配置
+ * 属性必须是小写，单词之间用'-'连接
+ *
  * @author : Jerry xu
  * @since : 2020/3/29  16:26
- * 使用 @ConfigurationProperties配置属性必须是小写，单词之间用'-'连接
  */
+@Data
 @Configuration
 @ConfigurationProperties(prefix = "map-object")
-@Data
 public class MavenMapBean {
 
     private Map<String, String> map;

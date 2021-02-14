@@ -34,9 +34,9 @@ name2: "mac n catalina"
 ##########################################################################
 
 program-language:
-  - object-c
-  - swift
-  - c
+  - "object-c"
+  - "swift"
+  - "c"
 # 或者行内写法
 program-languages: object-c, swift, c
 
@@ -49,14 +49,14 @@ person:
   name: Jerry
   age: 20
 # 或者行内写法
-persons: {name: Jerry, age: 20}
+persons: { name: Jerry, age: 20 }
 # Map
 map-object:
   maps:
     key1: value1
     key2: value2
 # 或者行内写法
-mapObjects.maps: {key1: value1,key2: value2}
+mapObjects.maps: { key1: value1,key2: value2 }
 
 ##########################################################################
 # 占位符

@@ -10,16 +10,16 @@ import java.util.List;
  * @author : Jerry xu
  * @date : 2019/10/27  13:00
  */
-@Component
 @Data
+@Component
 public class GradleDataBean {
 
     @Value("${env}")
     private String env;
-    @Value("${os}")
-    private String os;
-    @Value("${os-version}")
-    private String osVersion;
+    @Value("${crate-date}")
+    private Integer createDate;
+    @Value("${is-mac}")
+    private Boolean isMac;
     @Value("${email}")
     private String email;
     @Value("${message}")
@@ -29,18 +29,21 @@ public class GradleDataBean {
     @Value("${name2}")
     private String name2;
 
-//    @Value("${program-language}")
-//    private List<String> programLanguage;
-    @Value("${program-languages}")
+    @Value("${list-program-languages}")
     private List<String> programLanguages;
 
-    private Person person;
-    private Persons persons;
+    /**
+     * 使用el表达式，获取定义数组
+     */
+    @Value("#{'${el.list}'.split(',')}")
+    private List<String> programList;
 
-    private GradleMapBean mapObject;
-    private GradleMapsBean mapObjects;
+    @Value("${persons.name}")
+    private String name;
+    @Value("${persons.age}")
+    private Integer age;
 
-    @Value("$secret}")
+    @Value("${secret}")
     private String secret;
     @Value("${number}")
     private Integer number;
@@ -48,21 +51,5 @@ public class GradleDataBean {
     private Long bigNumber;
     @Value("${uuid}")
     private String uuid;
-
-    @Data
-    public static class Person {
-        @Value("${person.name}")
-        private String name;
-        @Value("${person.age}")
-        private Integer age;
-    }
-
-    @Data
-    public static class Persons {
-        @Value("${persons.name}")
-        private String name;
-        @Value("${persons.age}")
-        private Integer age;
-    }
 
 }

@@ -7,55 +7,66 @@ server:
 ##########################################################################
 # 数字，字符串，布尔配置
 ##########################################################################
+
 env: dev
-os: mac
-os-version: 10.15
+crate-date: 2020
+is-mac: true
+
 # ~表示NULL值
 email: ~
+
 # 多行字符串可以使用 | 保留换行符，也可以使用 > 折叠换行
 # + 表示保留文字块末尾的换行，- 表示删除字符串末尾的换行
 message: |-
-  hello world mac
+  hello world ${crate-date}
+
 # 单引号
 # 会转义特殊字符，特殊字符最终只是一个普通的字符串数据
-# 输出：
-# A n B
-name1: 'mac n catalina'
+# 输出：mac \n catalina
+name1: 'mac \n catalina'
+
 # 双引号
 # 不会转义字符串里面的特殊字符，特殊字符会作为本身想表示的意思
-# 输出：
-# A
-# B
-name2: "mac n catalina"
+# 输出：mac
+# catalina
+name2: "mac \n catalina"
 
 ##########################################################################
-# 数组（List、Set）
+# 数组（List）
 ##########################################################################
 
-program-language:
-  - object-c
-  - swift
-  - c
+# 这种写法，必须有两层结构，而且第二层（language 名字）是必须满足 Java 属性字段命名规则
+list:
+  language:
+    - 'object-c'
+    - 'swift'
+    - 'c'
 # 或者行内写法
-program-languages: object-c,swift,c
+list-program-languages: object-c, swift, c
+# SpEL 获取数组
+el:
+  list: object-c, swift, c
 
 ##########################################################################
 # 对象、Map（属性和值）
 ##########################################################################
 
 # 对象
-person:
+object:
   name: Jerry
   age: 20
+
 # 或者行内写法
-persons: {name: Jerry, age: 20}
+persons: { name: Jerry, age: 20 }
+
 # Map
 map-object:
-  maps:
+  map:
     key1: value1
     key2: value2
+
 # 或者行内写法
-mapObjects.maps: {key1: value1,key2: value2}
+mapObjects.maps: { key1: value1,key2: value2 }
 
 ##########################################################################
 # 占位符

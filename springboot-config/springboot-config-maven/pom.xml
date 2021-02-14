@@ -5,7 +5,7 @@
     <groupId>org.incoder</groupId>
     <artifactId>config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>config</name>
+    <name>springboot-config-maven</name>
     <description>Maven Config project for Spring Boot</description>
 
     <properties>
@@ -54,17 +54,6 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
         </dependency>
 
-        <!-- 排除 springboot 自带的 logback -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter</artifactId>-->
-        <!--            <exclusions>-->
-        <!--                <exclusion>-->
-        <!--                    <groupId>org.springframework.boot</groupId>-->
-        <!--                    <artifactId>spring-boot-starter-logging</artifactId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>

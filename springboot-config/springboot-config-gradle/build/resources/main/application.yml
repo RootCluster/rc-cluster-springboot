@@ -1,0 +1,4 @@
+# 表示使用 application-dev.yml 配置文件启动项目
+spring:
+  profiles:
+    active: dev

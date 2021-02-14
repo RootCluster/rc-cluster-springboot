@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.incoder.plus.mapper.StaffMapper">
+    <delete id="deleteAll">
+
+    </delete>
 
     <select id="xmlCustomSql" resultType="org.incoder.plus.entity.Staff">
         <!-- mybatis plus 会自动判断是否有条件，如果有加入条件【${ew.customSqlSegment}】，如果没有就直接查询-->

@@ -1,4 +1,4 @@
-## spring-mybatis
+## springboot-mybatis
 
 当前 model 演示完成简单的用户登陆，注册功能
 

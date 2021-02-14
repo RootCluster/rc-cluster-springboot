@@ -10,8 +10,8 @@ import java.util.List;
  * @author : Jerry xu
  * @date : 2019/10/27  13:00
  */
-@Component
 @Data
+@Component
 public class MavenDataBean {
 
     @Value("${env}")
@@ -29,8 +29,8 @@ public class MavenDataBean {
     @Value("${name2}")
     private String name2;
 
-//    @Value("${program-language}")
-//    private List<String> programLanguage;
+    @Value("${program-language}")
+    private List<String> programLanguage;
     @Value("${program-languages}")
     private List<String> programLanguages;
 

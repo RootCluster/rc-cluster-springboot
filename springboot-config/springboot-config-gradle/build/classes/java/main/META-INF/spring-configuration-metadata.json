@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "name": "list",
+      "type": "org.incoder.config.bean.ConfigListBean",
+      "sourceType": "org.incoder.config.bean.ConfigListBean"
+    },
+    {
+      "name": "map-object",
+      "type": "org.incoder.config.bean.ConfigMapBean",
+      "sourceType": "org.incoder.config.bean.ConfigMapBean"
+    },
+    {
+      "name": "map-objects",
+      "type": "org.incoder.config.bean.ConfigMapsBean",
+      "sourceType": "org.incoder.config.bean.ConfigMapsBean"
+    },
+    {
+      "name": "object",
+      "type": "org.incoder.config.bean.ConfigObjectBean",
+      "sourceType": "org.incoder.config.bean.ConfigObjectBean"
+    }
+  ],
+  "properties": [
+    {
+      "name": "list.language",
+      "type": "java.util.List<java.lang.String>",
+      "description": "这里不能再用 @Value(\"\") 去加载，修饰当前的字段， 必须指定其属性名和配置文件中定义的名称一致",
+      "sourceType": "org.incoder.config.bean.ConfigListBean"
+    },
+    {
+      "name": "map-object.map",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "这里不能再用 @Value(\"\") 去加载，修饰当前的字段， 必须指定其属性名和配置文件中定义的名称一致",
+      "sourceType": "org.incoder.config.bean.ConfigMapBean"
+    },
+    {
+      "name": "map-objects.maps",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "description": "这里不能再用 @Value(\"\") 去加载，修饰当前的字段， 必须指定其属性名和配置文件中定义的名称一致",
+      "sourceType": "org.incoder.config.bean.ConfigMapsBean"
+    },
+    {
+      "name": "object.age",
+      "type": "java.lang.Integer",
+      "sourceType": "org.incoder.config.bean.ConfigObjectBean"
+    },
+    {
+      "name": "object.name",
+      "type": "java.lang.String",
+      "description": "这里不能再用 @Value(\"\") 去加载，修饰当前的字段， 必须指定其属性名和配置文件中定义的名称一致",
+      "sourceType": "org.incoder.config.bean.ConfigObjectBean"
+    }
+  ],
+  "hints": []
+}
